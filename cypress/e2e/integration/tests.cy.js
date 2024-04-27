@@ -5,7 +5,7 @@ function searchProduct(productName) {
   cy.get('a[href="/products"]').click();
   cy.get('#search_product').type(productName);
   cy.get('#submit_search').click();
-}
+};
 
 describe('Login', () => {
   beforeEach(() => {
@@ -25,7 +25,7 @@ describe('Login', () => {
     cy.get('[data-qa="login-button"]').click();
     cy.get('#form > div > div > div.col-sm-4.col-sm-offset-1 > div > form > p').should('contain', 'Your email or password is incorrect!');
   });
-
+  
   it('Deve redirecionar para a página principal após o login bem-sucedido', () => {
     cy.get('[data-qa="login-email"]').type('teste2021@teste.com.br');
     cy.get('[name="password"]').type('teste');
@@ -43,5 +43,13 @@ describe('Carrinho de Compras', () => {
     searchProduct('Blue top');
     cy.get('.btn.btn-default.add-to-cart').eq(0).click();
     cy.get('.modal-header').should('contain', 'Added!');
+  });
+
+  it('Deve validar o produto adicionado no carrinho', () => {
+    searchProduct('Blue top');
+    cy.get('.btn.btn-default.add-to-cart').eq(0).click();
+    cy.get('.modal-header').should('contain', 'Added!');
+    cy.get('a[href="/view_cart"]').first().click();
+    cy.get('#cart_info_table tbody tr#product-1').should('contain', 'Blue Top');
   });
 });
