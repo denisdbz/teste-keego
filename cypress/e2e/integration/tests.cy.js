@@ -50,6 +50,6 @@ describe('Carrinho de Compras', () => {
     cy.get('.btn.btn-default.add-to-cart').eq(0).click();
     cy.get('.modal-header').should('contain', 'Added!');
     cy.get('a[href="/view_cart"]').first().click();
-    cy.get('#cart_info_table tbody tr#product-1').should('contain', 'Blue Top');
+    cy.get('#cart_info_table tbody tr#product-1').should('be.visible').and('contain', 'Blue Top');
   });
 });
