@@ -22,13 +22,13 @@ Front-end
 
 Para rodar os testes de front-end, use o comando:
 
-npx cypress run --spec "cypress/integration/nome-do-arquivo.cy.js"
+npx cypress run "cypress/e2e/integration/nome-do-arquivo.cy.js"
 
 Substitua nome-do-arquivo.cy.js pelo nome do arquivo de teste que você deseja executar.
 
 API
 Para rodar os testes de API, use o comando:
 
-npx cypress run --spec "cypress/integration/api-tests/nome-do-arquivo.cy.js"
+npx cypress run "cypress/e2e/api-tests/nome-do-arquvo.cy.js"
 
-Substitua nome-do-arquivo.spec.js pelo nome do arquivo de teste de API que você deseja executar.
+Substitua nome-do-arquivo.js pelo nome do arquivo de teste de API que você deseja executar.
